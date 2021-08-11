@@ -17,7 +17,7 @@ const genarateOptions = (data) => {
             categories: category,
             crosshair: true,
         },
-        colors: ['#F3585B'],
+        colors: ['#F3585B', '#808080', '#28A745'],
         yAxis: {
             min: 0,
             title: {
@@ -43,6 +43,14 @@ const genarateOptions = (data) => {
             {
                 name: 'Tổng ca nhiễm',
                 data: data.map((item) => item.Confirmed),
+            },
+            {
+                name: 'Tổng số ca tử vong',
+                data: data.map((item) => item.Deaths),
+            },
+            {
+                name: 'Tổng số ca khỏi',
+                data: data.map((item) => item.Recovered),
             },
         ]
     }     

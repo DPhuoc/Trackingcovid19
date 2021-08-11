@@ -34,7 +34,7 @@ const initOptions = {
   },
   series: [
     {
-      name: 'Dân số',
+      name: 'Số người nhiễm',
       joinBy: ['hc-key', 'key'],
     },
   ],

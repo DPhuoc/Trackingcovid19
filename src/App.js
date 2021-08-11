@@ -4,6 +4,8 @@ import CountrySelector from './components/CountrySelector/index'
 import Highlight from './components/Highlight/index'
 import Summary from './components/Summary/index'
 import { sortBy } from 'lodash';
+import { Container, Typography } from '@material-ui/core'
+import moment from 'moment'
 
 export default function App() {
     const [countries, setCountries] = useState([]);
@@ -39,11 +41,13 @@ export default function App() {
     }, [countries, selectedCountryId]);
 
     return (
-        <>
+        <Container>
+            <Typography variant="h2">Số liệu COVID-19</Typography>
+            <Typography>{moment().format('LLL')}</Typography>
             <CountrySelector countries={countries} handleOnChange={handleOnChange} value={selectedCountryId}/>
             <Highlight report={report} />
             <Summary selectedCountryId={selectedCountryId} report={report} />
-        </>
+        </Container>
     )
 }
 
