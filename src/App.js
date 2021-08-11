@@ -3,6 +3,7 @@ import { getCountries, getReportByCountry } from './apis'
 import CountrySelector from './components/CountrySelector/index'
 import Highlight from './components/Highlight/index'
 import Summary from './components/Summary/index'
+import { sortBy } from 'lodash';
 
 export default function App() {
     const [countries, setCountries] = useState([]);
@@ -12,9 +13,9 @@ export default function App() {
     useEffect(() => {
         getCountries()
             .then(res => {
-                console.log({ res });
-                setCountries(res.data);
-
+                const { data } = res;
+                const countries = sortBy(data, 'Country');
+                setCountries(countries);
                 setSelectedCountryId('vn');
             })
 
